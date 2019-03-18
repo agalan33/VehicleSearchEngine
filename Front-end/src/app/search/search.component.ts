@@ -11,7 +11,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  searchVehicle(brand: string, model: string, year: int, specification: string){
+  searchVehicle(brand: string, model: string, year: number, specification: string){
     console.log(brand);
     console.log(model);
     console.log(year);

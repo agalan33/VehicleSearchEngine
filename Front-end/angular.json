@@ -28,7 +28,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "theme.scss"
+              "src/theme.scss"
             ],
             "scripts": []
           },

@@ -2,7 +2,7 @@
 @include mat-core();
 
 $front-end-primary: mat-palette($mat-deep-orange);
-$front-end-accent:  mat-palette($mat-red, 500, 900, A100);
+$front-end-accent:  mat-palette($mat-deep-orange, 500, 900, A100);
 $front-end-warn:    mat-palette($mat-deep-orange);
 $front-end-theme: mat-light-theme($front-end-primary, $front-end-accent, $front-end-warn);
 @include angular-material-theme($front-end-theme);
