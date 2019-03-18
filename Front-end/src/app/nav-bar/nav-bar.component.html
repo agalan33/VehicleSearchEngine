@@ -1,8 +1,17 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 <mat-toolbar color="primary">
-  <span>Application Title</span>
+  <mat-toolbar-row>
+            <button mat-button [matMenuTriggerFor]="menu"
+            #matMenuTrigger="matMenuTrigger"
+            ><i class="material-icons">menu</i></button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/home" (click)="navTitle('Vehicle Search Engine')">Home</button>
+              <button mat-menu-item routerLink="/search" (click)="navTitle('Search')">Search</button>
+              <button mat-menu-item routerLink="/dealers" (click)="navTitle('Dealers')">Dealers</button>
+            </mat-menu>
+            <span>{{selectedRoute}}</span>
+        </mat-toolbar-row>
 
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
-
-  <span>Right Aligned Text</span>
 </mat-toolbar>

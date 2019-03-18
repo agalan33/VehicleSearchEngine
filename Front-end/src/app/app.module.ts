@@ -9,11 +9,17 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
+import { DealersComponent } from './dealers/dealers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomeComponent,
+    SearchComponent,
+    DealersComponent
   ],
   imports: [
        MatButtonModule,

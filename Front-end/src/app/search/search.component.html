@@ -1,0 +1,16 @@
+<mat-card>
+<mat-card-title>Search for any vehicles</mat-card-title>
+<mat-form-field>
+  <input #brand matInput placeholder="Brand"><br>
+</mat-form-field>
+<mat-form-field>
+  <input #model matInput placeholder="Model"><br>
+</mat-form-field>
+<mat-form-field>
+  <input #year matInput placeholder="Year"><br>
+</mat-form-field>
+<mat-form-field>
+  <input #specification matInput placeholder="Specification"><br>
+</mat-form-field>
+<button mat-button (click)="searchVehicle(brand.value, model.value, year.value, specification.value)">Search</button>
+</mat-card>

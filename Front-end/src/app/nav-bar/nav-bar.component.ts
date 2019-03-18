@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
+  selectedRoute = "Vehicle Search Engine";
   constructor() { }
 
   ngOnInit() {
+  }
+
+  navTitle(value: string){
+    this.selectedRoute = value;
   }
 
 }
