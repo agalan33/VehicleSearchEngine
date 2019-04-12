@@ -1,3 +1,32 @@
 <mat-card>
-  <mat-card-title>Dealers</mat-card-title>
+  <div fxLayoutAlign="flex-start">
+    <mat-card-title>
+      Dealers
+    </mat-card-title>
+  </div>
+  <mat-tab-group>
+    <mat-tab label="All Dealers">
+
+      <mat-form-field>
+        <input #searchAll matInput placeholder="search">
+      </mat-form-field>
+      <button mat-button (click)="searchContacts(searchAll.value)">
+        <i class="material-icons add-contact">
+          search
+        </i>
+      </button>
+    </mat-tab>
+  </mat-tab-group>
+  <mat-table [dataSource]='dealers' *ngIf="dealers.length != 0">
+    <ng-container matColumnDef="dname">
+      <mat-header-cell *matHeaderCellDef> Dealer Name </mat-header-cell>
+      <mat-cell *matCellDef="let dealer"> {{dealer.dname}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dcity">
+      <mat-header-cell *matHeaderCellDef> Dealer City </mat-header-cell>
+      <mat-cell *matCellDef="let dealer"> {{dealer.dcity}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
+    <mat-row *matRowDef="let dealer; columns: headers" (click)="goToDealer(dealer.did)"></mat-row>
+  </mat-table>
 </mat-card>

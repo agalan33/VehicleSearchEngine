@@ -1,29 +1,32 @@
-from numpy import long
-
 class vehicle:
 
     vid: int
-    vprice: int
     vbrand: str
     vmodel: str
-    vyear: int
-    date_added: long
-    isSold: bool
-    isReserved: bool
-    spid: int
+    vyear: str
+    vprice: int
+    date_added: str
     did: int
 
-    def init(self, vid,vprice,vbrand,vmodel,vyear,date_added,isSold, isReserved,spid,did):
-        self.vid = vid
-        self.vprice = vprice
-        self.vbrand = vbrand
-        self.vmodel = vmodel
-        self.vyear = vyear
-        self.date_added = date_added
-        self.isSold = isReserved
-        self.isReserved = isReserved
-        self.spid = spid
-        self.did = did
+    def __init__(self, row):
+        self.vid = row[0]
+        self.vbrand = row[1]
+        self.vmodel = row[2]
+        self.vyear = row[3]
+        self.vprice = row[4]
+        self.date_added = row[5]
+        self.did = row[6]
+
+    def classToJSON(self):
+        result = {}
+        result['vid'] = self.vid
+        result['vbrand'] = self.vbrand
+        result['vmodel'] = self.vmodel
+        result['vyear'] = self.vyear
+        result['vprice'] = self.vprice
+        result['date_added'] = self.date_added
+        result['did'] = self.did
+        return result
 
 
 
