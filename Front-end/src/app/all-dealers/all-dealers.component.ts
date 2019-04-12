@@ -6,12 +6,12 @@ import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-dealers',
-  templateUrl: './dealers.component.html',
-  styleUrls: ['./dealers.component.scss']
+  templateUrl: './all-dealers.component.html',
+  styleUrls: ['./all-dealers.component.scss']
 })
-export class DealersComponent implements OnInit {
+export class AllDealersComponent implements OnInit {
   dealers = [];
-  dealersURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Dealer';
+  dealersURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Dealers';
   headers = ['dname', 'dcity'];
   pURL = '/dealer/';
   constructor(private httpclient: HttpClient, private router: Router) { }

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class SearchComponent implements OnInit {
   vehicles = [];
   filtered = [];
-  vehiclesURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Dealer/1/vehicles';
+  vehiclesURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Dealers/1/vehicles';
   headers = ['vbrand', 'vmodel', 'vyear', 'vprice'];
   constructor(private httpclient: HttpClient) { }
 

@@ -13,8 +13,12 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
-import { DealersComponent } from './dealers/dealers.component';
+import { AllDealersComponent } from './all-dealers/all-dealers.component';
 import { DealerDetailComponent } from './dealer-detail/dealer-detail.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { DealerVehiclesComponent } from './dealer-vehicles/dealer-vehicles.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +26,11 @@ import { DealerDetailComponent } from './dealer-detail/dealer-detail.component';
     NavBarComponent,
     HomeComponent,
     SearchComponent,
-    DealersComponent,
-    DealerDetailComponent
+    AllDealersComponent,
+    DealerDetailComponent,
+    LoginComponent,
+    ProfileComponent,
+    DealerVehiclesComponent,
   ],
   imports: [
     MatButtonModule,
@@ -40,7 +47,8 @@ import { DealerDetailComponent } from './dealer-detail/dealer-detail.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    FlexLayoutModule
   ],
    exports: [
        MatButtonModule,

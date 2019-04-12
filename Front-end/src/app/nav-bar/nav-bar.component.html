@@ -7,13 +7,13 @@
             #matMenuTrigger="matMenuTrigger"
             ><i class="material-icons">menu</i></button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item routerLink="/" (click)="navTitle('Vehicle Search Engine')">Home</button>
-              <button mat-menu-item routerLink="/search" (click)="navTitle('My Dealer')">My Dealer</button>
-              <button mat-menu-item routerLink="/dealers" (click)="navTitle('Dealers')">Dealers</button>
+              <button mat-menu-item routerLink="/">Home</button>
+              <button mat-menu-item routerLink="/search">My Dealer</button>
+              <button mat-menu-item routerLink="/all-dealers">Dealers</button>
             </mat-menu>
             <span>{{selectedRoute}}</span>
             <span class="fill-space"></span>
-            <button mat-button>
+            <button mat-button routerLink="/login">
               <i class="material-icons">
               account_circle
             </i></button>
