@@ -11,7 +11,7 @@ class dealer:
         self.dcity = row[2]
         self.daddress = row[3]
 
-    def classToJSON(self):
+    def dealerToJSON(self):
         result = {}
         result['did'] = self.did
         result['dname'] = self.dname

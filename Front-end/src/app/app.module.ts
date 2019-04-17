@@ -5,32 +5,32 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatMenuModule, MatIconModule,
   MatCardModule, MatSidenavModule, MatFormFieldModule,
-  MatInputModule, MatTooltipModule, MatToolbarModule, MatTabsModule, MatTableModule
+  MatInputModule, MatTooltipModule, MatToolbarModule, MatTabsModule, MatTableModule, MatSortModule
 } from '@angular/material';
-
+import {AgmCoreModule} from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
-import { SearchComponent } from './search/search.component';
 import { AllDealersComponent } from './all-dealers/all-dealers.component';
 import { DealerDetailComponent } from './dealer-detail/dealer-detail.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DealerVehiclesComponent } from './dealer-vehicles/dealer-vehicles.component';
+import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    SearchComponent,
     AllDealersComponent,
     DealerDetailComponent,
     LoginComponent,
     ProfileComponent,
     DealerVehiclesComponent,
+    VehicleDetailComponent,
   ],
   imports: [
     MatButtonModule,
@@ -48,7 +48,9 @@ import { DealerVehiclesComponent } from './dealer-vehicles/dealer-vehicles.compo
     HttpClientModule,
     MatTabsModule,
     MatTableModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AgmCoreModule,
+    MatSortModule
   ],
    exports: [
        MatButtonModule,
@@ -59,7 +61,7 @@ import { DealerVehiclesComponent } from './dealer-vehicles/dealer-vehicles.compo
        MatFormFieldModule,
        MatInputModule,
        MatTooltipModule,
-       MatToolbarModule
+       MatToolbarModule,
    ],
   providers: [],
   bootstrap: [AppComponent]

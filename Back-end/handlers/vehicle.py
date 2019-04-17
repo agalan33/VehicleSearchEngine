@@ -9,6 +9,12 @@ class VehicleHandler:
         result = dao.getAllVehiclesFromDealer(did)
         mapped_result = []
         for r in result:
-            newDealer = vehicle(r)
-            mapped_result.append(newDealer.classToJSON())
+            newVehicle = vehicle(r)
+            mapped_result.append(newVehicle.vehiclesToJSON())
         return jsonify(mapped_result)
+
+    def getVehicleByID(self, vid):
+        dao = VehicleDao()
+        result = dao.getVehiclesById(vid)
+        newVehicle = vehicle(result, "specs")
+        return jsonify(newVehicle.vehicles_with_specs_to_JSON())

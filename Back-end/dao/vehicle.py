@@ -21,3 +21,10 @@ class VehicleDao:
         for row in cursor:
             result.append(row)
         return result
+
+    def getVehiclesById(self,vid):
+        cursor = self.conn.cursor()
+        query = "select vid, vbrand, vmodel, vprice, data_added, vcolor, did, horse_power, edition, cylinders, miles_per_gallon from vehicle join speficication on vehicle.vid = speficication.sid where sid = %s;"
+        cursor.execute(query, (vid,))
+        result = cursor.fetchstone()
+        return result

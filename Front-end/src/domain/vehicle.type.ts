@@ -5,5 +5,6 @@ export interface Vehicle {
   vyear: string;
   vprice: string;
   data_added: string;
+  vcolor: string;
   did: string;
 }

@@ -22,3 +22,10 @@ class DealerDao:
             result.append(row)
         return result
 
+    def getDealerByID(self, did):
+        cursor = self.conn.cursor()
+        query = "select * from dealer where did = %s;"
+        cursor.execute(query,(did,))
+        result = cursor.fetchone()
+        return result
+
