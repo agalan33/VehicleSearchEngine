@@ -11,6 +11,7 @@ import { Router} from '@angular/router';
 })
 export class AllDealersComponent implements OnInit {
   dealers = [];
+  filtered = [];
   dealersURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Dealers';
   headers = ['dname', 'dcity'];
   pURL = '/dealer/';
@@ -19,8 +20,16 @@ export class AllDealersComponent implements OnInit {
   ngOnInit() {
     this.httpclient.get<Dealer[]>(this.dealersURL).subscribe(data => {
       this.dealers = data;
-      console.log(this.dealers);
+      this.filtered = data;
     });
+  }
+
+  searchDealer(name: string) {
+    if (name === '') {
+      this.dealers = this.filtered;
+    } else {
+      this.dealers = this.filtered.filter(dealer => dealer.dname.toLowerCase().includes(name.toLowerCase()));
+    }
   }
   goToDealer(dealer: number) {
     const dUrl = this.pURL.concat(String(dealer));
