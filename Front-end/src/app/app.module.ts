@@ -3,9 +3,20 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatMenuModule, MatIconModule,
-  MatCardModule, MatSidenavModule, MatFormFieldModule,
-  MatInputModule, MatTooltipModule, MatToolbarModule, MatTabsModule, MatTableModule, MatSortModule
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatSidenavModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTooltipModule,
+  MatToolbarModule,
+  MatTabsModule,
+  MatTableModule,
+  MatSortModule,
+  MatDialogModule,
+  MatSnackBarModule
 } from '@angular/material';
 import {AgmCoreModule} from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DealerVehiclesComponent } from './dealer-vehicles/dealer-vehicles.component';
 import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
+import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +43,7 @@ import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.componen
     ProfileComponent,
     DealerVehiclesComponent,
     VehicleDetailComponent,
+    AddVehicleComponent,
   ],
   imports: [
     MatButtonModule,
@@ -50,7 +63,9 @@ import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.componen
     MatTableModule,
     FlexLayoutModule,
     AgmCoreModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
    exports: [
        MatButtonModule,
@@ -62,7 +77,12 @@ import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.componen
        MatInputModule,
        MatTooltipModule,
        MatToolbarModule,
+       MatDialogModule,
+     MatSnackBarModule
    ],
+  entryComponents: [
+    AddVehicleComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

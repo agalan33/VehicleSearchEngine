@@ -1,0 +1,44 @@
+<h2 mat-dialog-title align="center">Add a new vehicle</h2>
+<mat-form-field fxLayoutAlign="center">
+  <input #vbrand matInput placeholder="Vehicle's brand">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vmodel matInput placeholder="Vehicle's model">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vyear matInput placeholder="Vehicle's year">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vcolor matInput placeholder="Vehicle's color">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vprice matInput placeholder="Vehicle's price">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vhp matInput placeholder="Vehicle's horse power">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #ve matInput placeholder="Vehicle's edition">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vcylinder matInput placeholder="Vehicle's cylinders">
+</mat-form-field>
+<br>
+<mat-form-field fxLayoutAlign="center">
+  <input #vmpg matInput placeholder="Vehicle's miles per gallon">
+</mat-form-field>
+<br>
+<div fxLayoutAlign="center">
+  <button mat-button color="primary" (click)="addNewVehicle(vbrand.value, vmodel.value, vyear.value, vcolor.value, vprice.value, vhp.value, ve.value, vcylinder.value, vmpg.value)">Submit</button>
+  <button mat-button color="warn" (click)="closeDialog()">Cancel</button>
+</div>
+
+
+

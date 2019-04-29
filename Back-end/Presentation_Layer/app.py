@@ -1,10 +1,12 @@
 from flask import Flask, request
-from handlers.dealer import DealerHandler
-from handlers.vehicle import VehicleHandler
+from Application_Layer.dealer import DealerHandler
+from Application_Layer.vehicle import VehicleHandler
+from Application_Layer.employee import EmployeeHandler
 
 
 app = Flask(__name__)
 
+#Routes of the Presentation Layer
 
 @app.route('/')
 def hello_world():
@@ -24,6 +26,11 @@ def manage_vehicles(did):
     if request.method == 'GET':
         return VehicleHandler().getAllVehiclesFromDealer(did)
 
+@app.route('/VehicleSearchEngine/Dealers/<int:did>/reserved', methods=['GET'])
+def manage_reserved(did):
+    if request.method == 'GET':
+        return VehicleHandler().getReservedVehicles(did)
+
 @app.route('/VehicleSearchEngine/Dealers/<int:did>', methods=['GET'])
 def dealer_by_id(did):
     if request.method == 'GET':
@@ -38,6 +45,11 @@ def vehicles_from_dealer(did):
 def vehicle_by_id(vid):
     if request.method == 'GET':
         return VehicleHandler().getVehicleByID(vid)
+
+@app.route('/VehicleSearchEngine/Employees/<int:eid>', methods=['GET'])
+def employee_by_id(eid):
+    if request.method == 'GET':
+        return EmployeeHandler().getEmployeeByID(eid)
 
 if __name__ == '__main__':
     app.run()

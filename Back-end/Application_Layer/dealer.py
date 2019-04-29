@@ -1,6 +1,6 @@
 from flask import jsonify
-from domain.dealer import dealer
-from dao.dealer import DealerDao
+from Domain_Layer.dealer import dealer
+from Infrastructure_Layer.dealer import DealerDao
 
 class DealerHandler:
 

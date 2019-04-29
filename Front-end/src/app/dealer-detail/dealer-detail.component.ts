@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Vehicle} from '../../domain/vehicle.type';
 import { Sort } from '@angular/material';
+import { MatTabChangeEvent } from '@angular/material';
+import { MatDialog, MatDialogConfig} from '@angular/material';
+import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
 
 @Component({
   selector: 'app-dealer-detail',
@@ -18,9 +21,10 @@ export class DealerDetailComponent implements OnInit {
   vehicles = [];
   filtered = [];
   vehiclesURL = '';
+  reservedURL = ''
   headers = ['vbrand', 'vmodel', 'vyear', 'vcolor', 'vprice'];
 
-  constructor(private  httpClient: HttpClient, private router: Router) { }
+  constructor(private  httpClient: HttpClient, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.dURL = this.router.url.toString();
@@ -29,12 +33,29 @@ export class DealerDetailComponent implements OnInit {
     this.httpClient.get<Dealer>(this.dealerURL).subscribe(data => {
       this.dealer = data;
       this.vehiclesURL = this.dealerURL.concat('/vehicles');
+      this.reservedURL = this.dealerURL.concat('/reserved');
       this.getAllCars();
     });
   }
 
+  onLinkClick(event: MatTabChangeEvent) {
+    if (event.index === 0) {
+      this.getAllCars();
+    } else {
+      this.getReservedCars();
+    }
+  }
+
   getAllCars() {
     this.httpClient.get<Vehicle[]>(this.vehiclesURL).subscribe(data => {
+      this.vehicles = data;
+      this.filtered = data;
+    });
+  }
+
+
+  getReservedCars() {
+    this.httpClient.get<Vehicle[]>(this.reservedURL).subscribe(data => {
       this.vehicles = data;
       this.filtered = data;
     });
@@ -55,6 +76,15 @@ export class DealerDetailComponent implements OnInit {
     });
   }
 
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '400px';
+    dialogConfig.width = '500px';
+    this.dialog.open(AddVehicleComponent, dialogConfig);
+  }
 
   searchVehicle(brand: string, model: string, year: string, color: string) {
 

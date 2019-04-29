@@ -7,4 +7,8 @@ export interface Vehicle {
   data_added: string;
   vcolor: string;
   did: string;
+  horse_power: number;
+  edition: string;
+  cylinders: number;
+  miles_per_gallon: number;
 }

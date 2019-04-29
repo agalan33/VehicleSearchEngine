@@ -1,8 +1,8 @@
-from db.db_config import pg_config
+from Database_Configuration.db_config import pg_config
 import psycopg2
 from psycopg2 import ProgrammingError
 
-class DealerDao:
+class EmployeeDao:
 
     def __init__(self):
         connection_url = "dbname={} user={} host={} password={}".format(
@@ -13,19 +13,9 @@ class DealerDao:
         )
         self.conn = psycopg2.connect(connection_url)
 
-    def getAllDealers(self):
+    def getEmployeeByID(self, eid):
         cursor = self.conn.cursor()
-        query = "select * from dealer;"
-        cursor.execute(query)
-        result = []
-        for row in cursor:
-            result.append(row)
-        return result
-
-    def getDealerByID(self, did):
-        cursor = self.conn.cursor()
-        query = "select * from dealer where did = %s;"
-        cursor.execute(query,(did,))
+        query = "select * from employee where eid = %s;"
+        cursor.execute(query, (eid,))
         result = cursor.fetchone()
         return result
-

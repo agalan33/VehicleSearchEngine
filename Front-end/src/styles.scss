@@ -6,10 +6,16 @@
   flex: 1 1 auto;
 }
 
-.searchButton{
+.searchButton {
   color: darkslateblue;
 }
 
-agm-map {
-  height: 300px;
+.submitButton {
+  color: white;
+  background-color: darkslateblue;
+}
+
+.cancelButton {
+  color: white;
+  background-color: crimson;
 }

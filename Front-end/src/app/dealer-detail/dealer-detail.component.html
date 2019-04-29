@@ -1,34 +1,44 @@
 <mat-card>
-  <mat-card-title>
-    {{dealer.dname}}
-  </mat-card-title>
+  <div fxLayoutAlign="flex-start">
+    <mat-card-title>
+      {{dealer.dname}}
+    </mat-card-title>
+    <span class="fill-space"></span>
+    <button mat-button (click)="openDialog()">
+      <i class="material-icons searchButton">
+      add_circle
+    </i>
+    </button>
+  </div>
   <mat-card-subtitle>
     Addres:
   </mat-card-subtitle>
   <mat-card-content>
     {{dealer.daddress}}, {{dealer.dcity}}
   </mat-card-content>
-  <mat-tab-group>
-    <mat-tab label="All Vehicles">
-      <mat-form-field>
-        <input #brand matInput placeholder="Brand"><br>
-      </mat-form-field>
-      <mat-form-field>
-        <input #model matInput placeholder="Model"><br>
-      </mat-form-field>
-      <mat-form-field>
-        <input #year matInput placeholder="Year"><br>
-      </mat-form-field>
-      <mat-form-field>
-        <input #color matInput placeholder="Color"><br>
-      </mat-form-field>
-      <button mat-button (click)="searchVehicle(brand.value, model.value, year.value, color.value)">
-        <i class="material-icons searchButton">
-          search
-        </i>
-      </button>
+  <mat-tab-group (selectedTabChange)="onLinkClick($event)">
+    <mat-tab label="Available Vehicles">
+    </mat-tab>
+    <mat-tab label="Reserved Vehicles">
     </mat-tab>
   </mat-tab-group>
+  <mat-form-field>
+    <input #brand matInput placeholder="Brand"><br>
+  </mat-form-field>
+  <mat-form-field>
+    <input #model matInput placeholder="Model"><br>
+  </mat-form-field>
+  <mat-form-field>
+    <input #year matInput placeholder="Year"><br>
+  </mat-form-field>
+  <mat-form-field>
+    <input #color matInput placeholder="Color"><br>
+  </mat-form-field>
+  <button mat-button (click)="searchVehicle(brand.value, model.value, year.value, color.value)">
+    <i class="material-icons searchButton">
+      search
+    </i>
+  </button>
   <mat-table [dataSource]='vehicles' *ngIf="vehicles.length != 0" matSort (matSortChange)="sortData($event)">
     <ng-container matColumnDef="vbrand">
       <mat-header-cell *matHeaderCellDef mat-sort-header="brand"> Brand </mat-header-cell>
