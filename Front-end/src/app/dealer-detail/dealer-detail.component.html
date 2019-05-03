@@ -61,6 +61,6 @@
       <mat-cell *matCellDef="let vehicle"> ${{vehicle.vprice}} </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
-    <mat-row *matRowDef="let vehicle; columns: headers" (click)="goToVehicleDetails(vehicle.vid)"></mat-row>
+    <mat-row *matRowDef="let vehicle; columns: headers" (click)="goToVehicleDetail(vehicle.vid)"></mat-row>
   </mat-table>
 </mat-card>

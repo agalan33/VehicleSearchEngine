@@ -28,7 +28,6 @@ import { DealerDetailComponent } from './dealer-detail/dealer-detail.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DealerVehiclesComponent } from './dealer-vehicles/dealer-vehicles.component';
 import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 
@@ -41,7 +40,6 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
     DealerDetailComponent,
     LoginComponent,
     ProfileComponent,
-    DealerVehiclesComponent,
     VehicleDetailComponent,
     AddVehicleComponent,
   ],

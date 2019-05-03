@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
 import { Dealer} from '../../domain/dealer.type';
 import { Router} from '@angular/router';
 
@@ -18,12 +17,14 @@ export class AllDealersComponent implements OnInit {
   constructor(private httpclient: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    this.getAllDealers();
+  }
+  getAllDealers() {
     this.httpclient.get<Dealer[]>(this.dealersURL).subscribe(data => {
       this.dealers = data;
       this.filtered = data;
     });
   }
-
   searchDealer(name: string) {
     if (name === '') {
       this.dealers = this.filtered;

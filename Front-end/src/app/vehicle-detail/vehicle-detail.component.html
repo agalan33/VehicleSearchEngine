@@ -1,1 +1,47 @@
+<mat-card>
+  <div class="searchButton">
+    <button mat-button class="submitButton">Reserve</button>
+    <button mat-button class="submitButton">Sell</button>
+  </div>
+  <div align="center">
+      <img src="https://www.iconsdb.com/icons/preview/black/car-xxl.png">
+  </div>
+  <mat-card-title align="center">
+    <strong>Vehicle Detail</strong>
+  </mat-card-title>
+  <mat-card-subtitle align="center">
+    Specifications:
+  </mat-card-subtitle>
+  <div fxLayoutAlign="center">
+    <div class="tab">
+      <mat-card-content class="tab">
+        <strong> Brand:</strong> {{vehicle.vbrand}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong>Model:</strong> {{vehicle.vmodel}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> Year:</strong> {{vehicle.vyear}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> Color:</strong> {{vehicle.vcolor}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> Price:</strong> {{vehicle.vprice}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> Edition:</strong> {{vehicle.edition}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> Horse Power:</strong> {{vehicle.horse_power}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> Cylinders:</strong> {{vehicle.cylinders}}
+      </mat-card-content>
+      <mat-card-content class="tab">
+        <strong> MPG:</strong> {{vehicle.miles_per_gallon}}
+      </mat-card-content>
+    </div>
+  </div>
 
+</mat-card>

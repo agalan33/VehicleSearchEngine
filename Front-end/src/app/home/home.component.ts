@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   private employeeURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Employees/1';
   private employee: Employee;
   ngOnInit() {
+    this.getEmployeeInformation();
+  }
+  getEmployeeInformation() {
     this.httpClient.get<Employee>(this.employeeURL).subscribe(data => {
       this.employee = data;
     });

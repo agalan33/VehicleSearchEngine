@@ -21,12 +21,22 @@ export class DealerDetailComponent implements OnInit {
   vehicles = [];
   filtered = [];
   vehiclesURL = '';
-  reservedURL = ''
+  reservedURL = '';
   headers = ['vbrand', 'vmodel', 'vyear', 'vcolor', 'vprice'];
 
   constructor(private  httpClient: HttpClient, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.getDealerInformation();
+  }
+  onLinkClick(event: MatTabChangeEvent) {
+    if (event.index === 0) {
+      this.getAllCars();
+    } else {
+      this.getReservedCars();
+    }
+  }
+  getDealerInformation() {
     this.dURL = this.router.url.toString();
     this.dealerNumber = this.dURL.charAt(this.dURL.length - 1);
     this.dealerURL = this.dealerURL.concat(this.dealerNumber);
@@ -37,15 +47,6 @@ export class DealerDetailComponent implements OnInit {
       this.getAllCars();
     });
   }
-
-  onLinkClick(event: MatTabChangeEvent) {
-    if (event.index === 0) {
-      this.getAllCars();
-    } else {
-      this.getReservedCars();
-    }
-  }
-
   getAllCars() {
     this.httpClient.get<Vehicle[]>(this.vehiclesURL).subscribe(data => {
       this.vehicles = data;
@@ -115,8 +116,11 @@ export class DealerDetailComponent implements OnInit {
     }
   }
 
-  goToVehicleDetails(vid: number) {
+  goToVehicleDetail(vid: number) {
+    const thisURL = this.router.url.concat('/vehicles/');
+    const vehicleDetailURL = thisURL.concat(String(vid));
     console.log(vid);
+    this.router.navigateByUrl(vehicleDetailURL);
   }
 
   compare(a: number | string, b: number | string, isAsc: boolean) {
