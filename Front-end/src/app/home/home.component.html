@@ -11,6 +11,34 @@
   </mat-card-subtitle>
   <mat-tab-group>
     <mat-tab label="Most Sold Vehicles">
+      <mat-table [dataSource]='topVehicles' *ngIf="topVehicles.length != 0">
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef > Position </mat-header-cell>
+          <mat-cell  *matCellDef="let i = index;"> {{i + 1}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vbrand">
+          <mat-header-cell *matHeaderCellDef > Brand </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.vbrand}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vmodel">
+          <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.vmodel}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vyear">
+          <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.vyear}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vcolor">
+          <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> {{vehicle.vcolor}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vprice">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let vehicle"> ${{vehicle.vprice}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
+        <mat-row *matRowDef="let vehicle; columns: headers" (click)="goToVehicleDetail(vehicle.vid)"></mat-row>
+      </mat-table>
     </mat-tab>
     <mat-tab label="Vehicles on Sale">
     </mat-tab>

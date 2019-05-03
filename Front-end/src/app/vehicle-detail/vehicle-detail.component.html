@@ -3,6 +3,11 @@
     <button mat-button class="submitButton">Reserve</button>
     <button mat-button class="submitButton">Sell</button>
   </div>
+  <div class="tab">
+    <mat-card-subtitle>
+      This vehicle is reserved by: Juan
+    </mat-card-subtitle>
+  </div>
   <div align="center">
       <img src="https://www.iconsdb.com/icons/preview/black/car-xxl.png">
   </div>
@@ -27,7 +32,7 @@
         <strong> Color:</strong> {{vehicle.vcolor}}
       </mat-card-content>
       <mat-card-content class="tab">
-        <strong> Price:</strong> {{vehicle.vprice}}
+        <strong> Price:</strong> ${{vehicle.vprice}}
       </mat-card-content>
       <mat-card-content class="tab">
         <strong> Edition:</strong> {{vehicle.edition}}
