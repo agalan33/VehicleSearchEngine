@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   private employee: Employee;
   private allVehicles = [];
   private topVehicles: Vehicle[] = [];
-  headers = ['position', 'vbrand', 'vmodel', 'vyear', 'vcolor', 'vprice'];
+  headers = ['position', 'vbrand', 'vmodel'];
 
   ngOnInit() {
     this.getEmployeeInformation();

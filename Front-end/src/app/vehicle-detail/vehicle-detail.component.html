@@ -1,52 +1,59 @@
 <mat-card>
-  <div class="searchButton">
-    <button mat-button class="submitButton">Reserve</button>
-    <button mat-button class="submitButton">Sell</button>
-  </div>
-  <div class="tab">
-    <mat-card-subtitle>
-      This vehicle is reserved by: Juan
+  <div *ngIf="vehicle != null">
+    <div fxLayoutAlign="flex-start" class="searchButton">
+      <div *ngIf="reservation == null">
+        <button mat-button class="submitButton" (click)="openReservationDialog()">Reserve</button>
+      </div>
+<!--      <div>-->
+<!--        <button mat-button class="submitButton" (click)="openSellDialog()">Sell</button>-->
+<!--      </div>-->
+      <span class="fill-space"></span>
+      <div *ngIf="isCancelable">
+        <button mat-button class="submitButton" (click)="removeReservationFromVehicle()">Cancel Reservation</button>
+      </div>
+    </div>
+    <div *ngIf="reservation != null" class="tab reserved">
+        This vehicle is reserved by: {{reservation.rname}}
+    </div>
+    <div align="center">
+      <img src="https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/sedan-512.png">
+    </div>
+    <mat-card-title align="center">
+      <strong>Vehicle Detail</strong>
+    </mat-card-title>
+    <mat-card-subtitle align="center">
+      Specifications:
     </mat-card-subtitle>
-  </div>
-  <div align="center">
-      <img src="https://www.iconsdb.com/icons/preview/black/car-xxl.png">
-  </div>
-  <mat-card-title align="center">
-    <strong>Vehicle Detail</strong>
-  </mat-card-title>
-  <mat-card-subtitle align="center">
-    Specifications:
-  </mat-card-subtitle>
-  <div fxLayoutAlign="center">
-    <div class="tab">
-      <mat-card-content class="tab">
-        <strong> Brand:</strong> {{vehicle.vbrand}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong>Model:</strong> {{vehicle.vmodel}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> Year:</strong> {{vehicle.vyear}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> Color:</strong> {{vehicle.vcolor}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> Price:</strong> ${{vehicle.vprice}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> Edition:</strong> {{vehicle.edition}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> Horse Power:</strong> {{vehicle.horse_power}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> Cylinders:</strong> {{vehicle.cylinders}}
-      </mat-card-content>
-      <mat-card-content class="tab">
-        <strong> MPG:</strong> {{vehicle.miles_per_gallon}}
-      </mat-card-content>
+    <div fxLayoutAlign="center">
+      <div class="tab">
+        <mat-card-content class="tab">
+          <strong> Brand:</strong> {{vehicle.vbrand}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong>Model:</strong> {{vehicle.vmodel}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> Year:</strong> {{vehicle.vyear}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> Color:</strong> {{vehicle.vcolor}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> Price:</strong> ${{vehicle.vprice}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> Edition:</strong> {{vehicle.edition}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> Horse Power:</strong> {{vehicle.horse_power}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> Cylinders:</strong> {{vehicle.cylinders}}
+        </mat-card-content>
+        <mat-card-content class="tab">
+          <strong> MPG:</strong> {{vehicle.miles_per_gallon}}
+        </mat-card-content>
+      </div>
     </div>
   </div>
-
 </mat-card>

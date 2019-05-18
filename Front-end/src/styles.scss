@@ -6,6 +6,10 @@
   flex: 1 1 auto;
 }
 
+html{
+  background-color: aliceblue;
+}
+
 .searchButton {
   color: darkslateblue;
 }
@@ -20,6 +24,14 @@
   background-color: crimson;
 }
 
+.mat-card{
+  background-color: plum;
+}
+
 .tab {
   margin-left: 40px;
+}
+
+.reserved{
+  color: crimson;
 }

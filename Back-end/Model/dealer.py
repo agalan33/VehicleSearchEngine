@@ -1,7 +1,16 @@
 from Database_Configuration.db_config import pg_config
 import psycopg2
+from flask import jsonify
 
 class DealerDao:
+
+    def dealerToJSON(self, row):
+        result = {}
+        result['did'] = row[0]
+        result['dname'] = row[1]
+        result['dcity'] = row[2]
+        result['daddress'] = row[3]
+        return result
 
     def __init__(self):
         connection_url = "dbname={} user={} host={} password={}".format(
@@ -18,13 +27,14 @@ class DealerDao:
         cursor.execute(query)
         result = []
         for row in cursor:
-            result.append(row)
-        return result
+            result.append(self.dealerToJSON(row))
+        return jsonify(result)
 
     def getDealerByID(self, did):
         cursor = self.conn.cursor()
         query = "select * from dealer where did = %s;"
         cursor.execute(query,(did,))
         result = cursor.fetchone()
-        return result
+        mapped_result = self.dealerToJSON(result)
+        return jsonify(mapped_result)
 

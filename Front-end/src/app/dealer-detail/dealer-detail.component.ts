@@ -7,6 +7,7 @@ import { Sort } from '@angular/material';
 import { MatTabChangeEvent } from '@angular/material';
 import { MatDialog, MatDialogConfig} from '@angular/material';
 import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
+import {Employee} from '../../domain/employee.type';
 
 @Component({
   selector: 'app-dealer-detail',
@@ -17,7 +18,9 @@ export class DealerDetailComponent implements OnInit {
   dealer: Dealer;
   dealerNumber = '';
   dealerURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Dealers/';
+  employee: Employee;
   dURL = '';
+  isEmployeeDealer = false;
   vehicles = [];
   filtered = [];
   vehiclesURL = '';
@@ -36,6 +39,15 @@ export class DealerDetailComponent implements OnInit {
       this.getReservedCars();
     }
   }
+  getEmployee () {
+    const employeeURL = 'http://127.0.0.1:5000/VehicleSearchEngine/Employees/1';
+    this.httpClient.get<Employee>(employeeURL).subscribe(data => {
+      this.employee = data;
+      if (this.employee.did === this.dealer.did) {
+        this.isEmployeeDealer = true;
+      }
+    });
+  }
   getDealerInformation() {
     this.dURL = this.router.url.toString();
     this.dealerNumber = this.dURL.charAt(this.dURL.length - 1);
@@ -45,6 +57,7 @@ export class DealerDetailComponent implements OnInit {
       this.vehiclesURL = this.dealerURL.concat('/vehicles');
       this.reservedURL = this.dealerURL.concat('/reserved');
       this.getAllCars();
+      this.getEmployee();
     });
   }
   getAllCars() {

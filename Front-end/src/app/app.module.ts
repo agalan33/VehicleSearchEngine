@@ -30,6 +30,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
+import { AddSellComponent } from './add-sell/add-sell.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
     ProfileComponent,
     VehicleDetailComponent,
     AddVehicleComponent,
+    AddReservationComponent,
+    AddSellComponent,
   ],
   imports: [
     MatButtonModule,
@@ -79,7 +83,9 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
      MatSnackBarModule
    ],
   entryComponents: [
-    AddVehicleComponent
+    AddVehicleComponent,
+    AddReservationComponent,
+    AddSellComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
